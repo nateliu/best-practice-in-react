@@ -1,10 +1,10 @@
-/*ʵ��һ����̬�ļ�������,�����վ����Ŀ¼���ҵ�������ʾ���ݣ��Ҳ�������ʾ
-404�ļ�û���ҵ�����Ϣ�Ϳ����ˡ�
-Ҫ�õ���ģ�飺
+﻿/*实现一个静态文件服务器,如果网站本地目录能找到，就显示内容，找不到就显示
+404文件没有找到的信息就可以了。
+要用到的模块：
 http,fs,url,path
-http��������web��������fs������ȡ�ļ���url������ȡweb·������path�������
-����ȡ�ļ�����·������ؼ�����.
-�Զ����һ��MIMEģ��
+http用来建立web服务器，fs用来读取文件，url用来获取web路径，而path则可以用
+来获取文件本地路径及相关检测操作.
+自定义的一个MIME模块
 */
 var mime = require("./Mime");
 var http = require("http"),fs = require("fs"), url = require("url"), path = require("path");
@@ -13,18 +13,18 @@ http.createServer(function (request, response) {
     var abspath = __dirname + webpath;
     path.exists(abspath, function (exist) {
         if (exist) {
-            //ʹ�ö����ƶ�ȡ�ļ������Ҳ���ö�����д���ݡ���response.write(xxx,"binanry");
+            //使用二进制读取文件，最后也是用二进制写内容。如response.write(xxx,"binanry");
             fs.readFile(abspath, "binary", function (err, data) {
                 if (err) {
                     throw err;
                 }
 
-                //��ȡ�ļ��ĺ�׺��
+                //获取文件的后缀名
                 var ext = path.extname(webpath);
                 ext = ext ? ext.slice(1) : "unknown";
                 console.log(ext);
 
-                //�����ļ��ĺ�׺���õ���Ӧ��MIME
+                //根据文件的后缀名得到对应的MIME
                 var contentType = mime.mimes[ext];
                 console.log(contentType);
 
