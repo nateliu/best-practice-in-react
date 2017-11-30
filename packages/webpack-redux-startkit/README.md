@@ -1,4 +1,4 @@
-# es6-redux-webpack-startkit <p id="top"></p>
+# webpack-redux-startkit <p id="top"></p>
 
 1. Init project  
 ``` npm init ```  
@@ -41,6 +41,7 @@ plugins:[
         filename: 'bundle-[id]-[hash].js' //very important in cache
     },
 ```  
+7. npm start
 
 
 
