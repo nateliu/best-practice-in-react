@@ -13,6 +13,10 @@ const mount = (componet,wrapper) => {
 }
 
 class Component {
+    constructor(props = {}) {
+        this.props = props;
+    }
+
     setState(state){
         const oldEl = this.el;
         this.state = state;
@@ -46,7 +50,7 @@ class LikeButton extends Component {
 
     render() {
         return `
-        <button class="likeButton">
+        <button class="likeButton" style="background-color: ${this.props.bgColor}">
             <span class="likeText">${this.state.isLiked ? 'Unlike' : 'Like'}</span>
         </button>
         `;
@@ -54,5 +58,5 @@ class LikeButton extends Component {
 }
 
 const likeArea = document.querySelector('.likeArea');
-const btn = new LikeButton();
+const btn = new LikeButton({bgColor:'pink'});
 mount(btn,likeArea);
