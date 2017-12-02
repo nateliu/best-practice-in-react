@@ -47,6 +47,11 @@ git commit .
 git push origin master
 git tag -a step00-init-project -m "init project"
 git push origin --tag
+
+//delete tag
+git tag -d step04-state-render-but-nothing
+git push origin :refs/tags/step04-state-render-but-nothing
+
 ```
 
 

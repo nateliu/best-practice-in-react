@@ -10,8 +10,12 @@ class LikeButton {
     }
 
     setState(state){
+        const oldEl = this.el;
         this.state = state;
         this.el = this.render()
+        if(this.onStateChange) {
+            this.onStateChange(oldEl,this.el);
+        }
     }
 
     changeLikeText = () => {
@@ -34,3 +38,7 @@ class LikeButton {
 const likeArea = document.querySelector('.likeArea');
 const btn = new LikeButton();
 likeArea.appendChild(btn.render());
+btn.onStateChange = (oldEl,newEl) => {
+    likeArea.insertBefore(newEl,oldEl);
+    likeArea.removeChild(oldEl);
+}
