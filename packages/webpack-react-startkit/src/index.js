@@ -5,13 +5,23 @@ const createDOMFromString = (domString) => {
 }
 
 class LikeButton {
+    constructor() {
+        this.state = {isLiked:false};
+    }
+
+    changeLikeText = () => {
+        this.state.isLiked = !this.state.isLiked;
+        const likeText = this.el.querySelector('.likeText');
+        likeText.innerHTML = this.state.isLiked ? 'Unlike' : 'Like';
+    }
+
     render() {
         this.el = createDOMFromString(`
         <button class="likeButton">
             <span class="likeText">Like</span>
         </button>
         `);
-        this.el.addEventListener('click',() =>console.log('I am a click log event!'),false)
+        this.el.addEventListener('click',this.changeLikeText.bind(this),false)
         return this.el;
     }
 }
