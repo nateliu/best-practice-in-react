@@ -9,16 +9,21 @@ class LikeButton {
         this.state = {isLiked:false};
     }
 
+    setState(state){
+        this.state = state;
+        this.el = this.render()
+    }
+
     changeLikeText = () => {
-        this.state.isLiked = !this.state.isLiked;
-        const likeText = this.el.querySelector('.likeText');
-        likeText.innerHTML = this.state.isLiked ? 'Unlike' : 'Like';
+        this.setState(
+            {isLiked:!this.state.isLiked}
+        );
     }
 
     render() {
         this.el = createDOMFromString(`
         <button class="likeButton">
-            <span class="likeText">Like</span>
+            <span class="likeText">${this.state.isLiked ? 'Unlike' : 'Like'}</span>
         </button>
         `);
         this.el.addEventListener('click',this.changeLikeText.bind(this),false)
