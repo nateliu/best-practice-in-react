@@ -41,6 +41,16 @@ plugins:[
 ```  
 7. npm start
 
+8. PS: use tag to manage this project
+``` 
+git commit .
+git push origin master
+git tag -a step00-init-project -m "init project"
+git push origin --tag
+```
+
+
+
 
 
 
