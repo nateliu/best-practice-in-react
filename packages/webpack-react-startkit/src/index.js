@@ -1,11 +1,13 @@
-const btn = document.querySelector('.likeButton');
-const btnText = btn.querySelector('.likeText');
-let isLiked = false;
-btn.addEventListener('click',() => {
-    isLiked = !isLiked;
-    if(isLiked) {
-        btnText.innerHTML = 'Unlike';
-    } else {
-        btnText.innerHTML = 'Like';
+class LikeButton {
+    render() {
+        return `
+        <button class="likeButton">
+            <span class="likeText">Like</span>
+        </button>
+        `;
     }
-}, false);
+}
+
+const likeArea = document.querySelector('.likeArea');
+const btn = new LikeButton();
+likeArea.innerHTML = btn.render();
