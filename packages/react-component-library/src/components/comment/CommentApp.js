@@ -11,6 +11,10 @@ export default class CommentApp extends React.Component {
         }
     }
 
+    componentWillMount () {
+        this._loadComments()
+    }
+
     handleSubmitComment (comment) {
         if (!comment) return;
         if (!comment.userName) return alert('Name is required!');
@@ -19,7 +23,8 @@ export default class CommentApp extends React.Component {
         this.state.comments.push(comment);
         this.setState({
             comments:this.state.comments
-        })
+        });
+        this._saveComments(this.state.comments);
     }
 
     render(){
@@ -31,4 +36,15 @@ export default class CommentApp extends React.Component {
         );
     }
 
+    _saveComments(comments) {
+        localStorage.setItem('comments', JSON.stringify(comments));
+    }
+
+    _loadComments () {
+        let comments = localStorage.getItem('comments')
+        if (comments) {
+            comments = JSON.parse(comments)
+            this.setState({ comments })
+        }
+    }
 }
