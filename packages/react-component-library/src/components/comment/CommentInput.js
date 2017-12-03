@@ -10,6 +10,10 @@ export default class CommentInput extends React.Component {
         }
     }
 
+    componentWillMount(){
+        this._loadUserName();
+    }
+
     componentDidMount() {
         this.textArea.focus();
     }
@@ -18,6 +22,10 @@ export default class CommentInput extends React.Component {
         this.setState({
             userName: event.target.value
         })
+    }
+
+    handleUsernameBlur (event) {
+        this._saveUserName(event.target.value)
     }
 
     handleContentChange (event) {
@@ -40,7 +48,10 @@ export default class CommentInput extends React.Component {
                 <div className='comment-field'>
                     <span className='comment-field-name'>Name:</span>
                     <div className='comment-field-input'>
-                        <input value={this.state.userName} onChange={this.handleUsernameChange.bind(this)} />
+                        <input 
+                            onBlur={this.handleUsernameBlur.bind(this)}
+                            value={this.state.userName}     
+                            onChange={this.handleUsernameChange.bind(this)} />
                     </div>
                 </div>
 
@@ -61,6 +72,18 @@ export default class CommentInput extends React.Component {
         );
     }
 
+    _saveUserName (userName) {
+        localStorage.setItem("userName",userName);
+    }
+
+    _loadUserName () {
+        const userName = localStorage.getItem("userName");
+        if ( userName) {
+            this.setState({
+                userName: userName
+            })
+        }
+    }
 }
 
 CommentInput.propTypes = {
