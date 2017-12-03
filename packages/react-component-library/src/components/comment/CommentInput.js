@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default class CommentInput extends React.Component {
     constructor(){
@@ -7,6 +8,10 @@ export default class CommentInput extends React.Component {
             userName: '',
             content:  ''
         }
+    }
+
+    componentDidMount() {
+        this.textArea.focus();
     }
 
     handleUsernameChange (event) {
@@ -28,7 +33,7 @@ export default class CommentInput extends React.Component {
         }
         this.setState({ content: '' })
     }
-    
+
     render(){
         return (
             <div className='comment-input'>
@@ -42,7 +47,10 @@ export default class CommentInput extends React.Component {
                 <div className='comment-field'>
                     <span className='comment-field-name'>Comments：</span>
                     <div className='comment-field-input'>
-                        <textarea value={this.state.content} onChange={this.handleContentChange.bind(this)} />
+                        <textarea 
+                            ref = {(textArea)=>this.textArea = textArea}
+                            value={this.state.content} 
+                            onChange={this.handleContentChange.bind(this)} />
                     </div>
                 </div>
 
@@ -53,4 +61,8 @@ export default class CommentInput extends React.Component {
         );
     }
 
+}
+
+CommentInput.propTypes = {
+    onSubmit: PropTypes.func
 }
