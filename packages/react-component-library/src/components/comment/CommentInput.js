@@ -6,7 +6,7 @@ export default class CommentInput extends React.Component {
         super(props);
         this.state = {
             userName: props.userName,
-            content:  ''
+            content: ''
         }
     }
 
@@ -14,39 +14,41 @@ export default class CommentInput extends React.Component {
         this.textArea.focus();
     }
 
-    handleUsernameChange (event) {
+    handleUsernameChange(event) {
         this.setState({
             userName: event.target.value
         })
     }
 
-    handleUsernameBlur (event) {
-        this._saveUserName(event.target.value)
+    handleUsernameBlur(event) {
+        if (this.props.onUserNameInputBlur) {
+            this.props.onUserNameInputBlur(event.target.value)
+        }
     }
 
-    handleContentChange (event) {
+    handleContentChange(event) {
         this.setState({
             content: event.target.value
         })
     }
 
-    handleSubmit () {
+    handleSubmit() {
         if (this.props.onSubmit) {
             const { userName, content } = this.state
-            this.props.onSubmit({userName, content, createdTime: +new Date()})
+            this.props.onSubmit({ userName, content, createdTime: +new Date() })
         }
         this.setState({ content: '' })
     }
 
-    render(){
+    render() {
         return (
             <div className='comment-input'>
                 <div className='comment-field'>
                     <span className='comment-field-name'>Name:</span>
                     <div className='comment-field-input'>
-                        <input 
+                        <input
                             onBlur={this.handleUsernameBlur.bind(this)}
-                            value={this.state.userName}     
+                            value={this.state.userName}
                             onChange={this.handleUsernameChange.bind(this)} />
                     </div>
                 </div>
@@ -54,9 +56,9 @@ export default class CommentInput extends React.Component {
                 <div className='comment-field'>
                     <span className='comment-field-name'>Comments：</span>
                     <div className='comment-field-input'>
-                        <textarea 
-                            ref = {(textArea)=>this.textArea = textArea}
-                            value={this.state.content} 
+                        <textarea
+                            ref={(textArea) => this.textArea = textArea}
+                            value={this.state.content}
                             onChange={this.handleContentChange.bind(this)} />
                     </div>
                 </div>
@@ -71,10 +73,11 @@ export default class CommentInput extends React.Component {
 }
 
 CommentInput.propTypes = {
-    userName: PropTypes.string,
+    userName: PropTypes.any,
     onSubmit: PropTypes.func,
     onUserNameInputBlur: PropTypes.func
 }
+
 
 CommentInput.defaultProps = {
     userName: ''

@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import CommentApp from './containers/comment/CommentApp';
-import commentsReducer from './reducers/comment/comment'
+import commentsReducer from './reducers/comment/comments';
 import './components/comment/Comment.css';
 
-const store = createStore(commentsReducer)
+const store = createStore(commentsReducer);
 
 ReactDOM.render(
     <Provider store={store}>
