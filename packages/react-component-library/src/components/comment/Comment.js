@@ -44,10 +44,40 @@ export default class Comment extends React.Component {
         const comment = this.props.comment
         const duration = (+Date.now() - comment.createdTime) / 1000
         this.setState({
-        timeString: duration > 60
-            ? `${Math.round(duration / 60)} Mins ago`
-            : `${Math.round(Math.max(duration, 1))} Secs ago`
+        timeString: this._parseTimeString(duration)
         })
+    }
+
+    _parseTimeString (duration) {
+        let result = '';
+        const dayVariant = 60 * 60 * 24;
+        const minVariant = 60;
+        if(duration > dayVariant) {
+            const dayDisp = Math.round(duration / dayVariant);
+            if (dayDisp > 1) {
+                result = `${dayDisp} Days ago`
+            } else {
+                result = `${dayDisp} Day ago`
+            }
+            //result = `${Math.round(duration / dayVariant)} ${Math.round(duration / dayVariant)} > 1 ? Days ago : Day ago`
+        } else if (duration > minVariant) {
+            const minDisp = Math.round(duration / minVariant);
+            if (minDisp > 1) {
+                result = `${minDisp} Mins ago`
+            } else {
+                result = `${minDisp} Min ago`
+            }
+            //result = `${Math.round(duration / minVariant)} Min(s) ago`
+        } else {
+            const secDisp = Math.round(Math.max(duration, 1));
+            if (secDisp > 1) {
+                result = `${secDisp} Secs ago`
+            } else {
+                result = `${secDisp} Sec ago`
+            }
+           // result = `${Math.round(Math.max(duration, 1))} Secs ago`
+        }
+        return result;
     }
 
     _getProcessedContent (content) {
@@ -58,7 +88,7 @@ export default class Comment extends React.Component {
         .replace(/"/g, "&quot;")
         .replace(/'/g, "&#039;")
         .replace(/`([\S\s]+?)`/g, '<code>$1</code>')
-  }
+    }
 
 }
 
