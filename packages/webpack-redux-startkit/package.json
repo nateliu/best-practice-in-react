@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nateliu/es6-redux-webpack-startkit.git"
+    "url": "git+https://github.com/nateliu/webpack-redux-startkit.git"
   },
   "author": "Nate Liu",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/nateliu/es6-redux-webpack-startkit/issues"
+    "url": "https://github.com/nateliu/webpack-redux-startkit/issues"
   },
-  "homepage": "https://github.com/nateliu/es6-redux-webpack-startkit#readme",
+  "homepage": "https://github.com/nateliu/webpack-redux-startkit#readme",
   "dependencies": {
     "redux": "^3.7.2"
   },
