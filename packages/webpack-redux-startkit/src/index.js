@@ -22,6 +22,17 @@ const stateChanger = (state, action) => {
     }
 }
 
+const createStore = (state, stateChanger) => {
+    const listeners = [];
+    const subscribe = (listener) => listeners.push(listener);
+    const getState = () => state;
+    const dispatch = (state, action) => {
+        stateChanger(state, action);
+        listeners.map(listener => listener());
+    }
+    return { getState, dispatch, subscribe };
+}
+
 const renderApp = (state) => {
     console.log('render app...');
     renderTitle(state.title);
@@ -43,6 +54,7 @@ const renderContent = (content) => {
 }
 
 renderApp(appState);
-stateChanger(appState, { type: 'UPDATE_TITLE_TEXT', text: 'Here is the updated title' })
-stateChanger(appState, { type: 'UPDATE_TITLE_COLOR', color: 'green' });
-renderApp(appState);
+const store = createStore(appState, stateChanger);
+store.subscribe(() => renderApp(store.getState()));
+store.dispatch(store.getState(), { type: 'UPDATE_TITLE_TEXT', text: 'Here is the updated title' })
+store.dispatch(store.getState(), { type: 'UPDATE_TITLE_COLOR', color: 'green' });
