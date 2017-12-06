@@ -12,13 +12,23 @@ const appState = {
 const stateChanger = (state, action) => {
     switch (action.type) {
         case 'UPDATE_TITLE_TEXT':
-            state.title.text = action.text;
-            break;
+            return {
+                ...state,
+                title: {
+                    ...state.title,
+                    text: action.text
+                }
+            };
         case 'UPDATE_TITLE_COLOR':
-            state.title.color = action.color;
-            break;
+            return {
+                ...state,
+                title: {
+                    ...state.title,
+                    color: action.color
+                }
+            };
         default:
-            break;
+            state;
     }
 }
 
@@ -26,27 +36,30 @@ const createStore = (state, stateChanger) => {
     const listeners = [];
     const subscribe = (listener) => listeners.push(listener);
     const getState = () => state;
-    const dispatch = (state, action) => {
-        stateChanger(state, action);
+    const dispatch = (stateHere, action) => {
+        state = stateChanger(stateHere, action);
         listeners.map(listener => listener());
     }
     return { getState, dispatch, subscribe };
 }
 
-const renderApp = (state) => {
+const renderApp = (state, oldState = {}) => {
+    if (state === oldState) return;
     console.log('render app...');
-    renderTitle(state.title);
-    renderContent(state.content);
+    renderTitle(state.title, oldState.title);
+    renderContent(state.content, oldState.content);
 }
 
-const renderTitle = (title) => {
+const renderTitle = (title, oldTitle = {}) => {
+    if (title === oldTitle) return;
     console.log('render title...');
     const titleDOM = document.getElementById('title');
     titleDOM.innerHTML = title.text;
     titleDOM.style.color = title.color;
 }
 
-const renderContent = (content) => {
+const renderContent = (content, oldContent = {}) => {
+    if (content === oldContent) return;
     console.log('render content...');
     const contentDOM = document.getElementById('content');
     contentDOM.innerHTML = content.text;
@@ -55,6 +68,12 @@ const renderContent = (content) => {
 
 renderApp(appState);
 const store = createStore(appState, stateChanger);
-store.subscribe(() => renderApp(store.getState()));
+let oldState = store.getState();
+store.subscribe(() => {
+    const newState = store.getState();
+    renderApp(newState, oldState);
+    oldState = newState;
+});
+renderApp(store.getState());
 store.dispatch(store.getState(), { type: 'UPDATE_TITLE_TEXT', text: 'Here is the updated title' })
 store.dispatch(store.getState(), { type: 'UPDATE_TITLE_COLOR', color: 'green' });
