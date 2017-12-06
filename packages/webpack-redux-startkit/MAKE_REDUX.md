@@ -3,3 +3,4 @@ This is tutorial for make a redux.
 2. Add diffult to modify appState, for example add a stateChanger redux add a dispatch as bridge.
 3. Combine appState and stateChanger into one store.
 4. Add a subscribe in store to refresh the appState automaticlly.
+5. Performance improve for above 4 steps
