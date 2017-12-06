@@ -1,15 +1,17 @@
-const appState = {
-    title: {
-        text: 'Here is the title',
-        color: 'red'
-    },
-    content: {
-        text: 'Here is the content',
-        color: 'blue'
-    }
-}
-
 const stateChanger = (state, action) => {
+    if (!state) {
+        return {
+            title: {
+                text: 'Here is the title',
+                color: 'red'
+            },
+            content: {
+                text: 'Here is the content',
+                color: 'blue'
+            }
+        }
+    }
+
     switch (action.type) {
         case 'UPDATE_TITLE_TEXT':
             return {
@@ -32,14 +34,16 @@ const stateChanger = (state, action) => {
     }
 }
 
-const createStore = (state, stateChanger) => {
+const createStore = (reducer) => {
+    let state = null;
     const listeners = [];
     const subscribe = (listener) => listeners.push(listener);
     const getState = () => state;
-    const dispatch = (stateHere, action) => {
-        state = stateChanger(stateHere, action);
+    const dispatch = (action) => {
+        state = reducer(state, action);
         listeners.map(listener => listener());
     }
+    dispatch({});
     return { getState, dispatch, subscribe };
 }
 
@@ -66,8 +70,7 @@ const renderContent = (content, oldContent = {}) => {
     contentDOM.style.color = content.color;
 }
 
-renderApp(appState);
-const store = createStore(appState, stateChanger);
+const store = createStore(stateChanger);
 let oldState = store.getState();
 store.subscribe(() => {
     const newState = store.getState();
@@ -75,5 +78,5 @@ store.subscribe(() => {
     oldState = newState;
 });
 renderApp(store.getState());
-store.dispatch(store.getState(), { type: 'UPDATE_TITLE_TEXT', text: 'Here is the updated title' })
-store.dispatch(store.getState(), { type: 'UPDATE_TITLE_COLOR', color: 'green' });
+store.dispatch({ type: 'UPDATE_TITLE_TEXT', text: 'Here is the updated title' })
+store.dispatch({ type: 'UPDATE_TITLE_COLOR', color: 'green' });
