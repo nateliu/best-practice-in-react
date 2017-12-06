@@ -1,36 +1,32 @@
-import { createStore } from 'redux'
-
-// @Reducer
-const addItem = (state = [], action) => {
-    switch (action.type) {
-        case 'ADD_ITEM':
-            return [action.text, ...state] ;
-        default: return state
+const appState = {
+    title: {
+        text: 'Here is the title',
+        color: 'red'
+    },
+    content: {
+        text: 'Here is the content',
+        color: 'blue'
     }
 }
 
-
-// @Store
-const store = createStore(addItem, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
-
-
-// @Render
-const render = () => {
-    const items = store.getState().map(item => ( (item) ? `<li>${item}</li>` : '' )) ;
-
-    document.getElementById('itemlist').innerHTML = `<ul>${items.join('')}</ul>`
+const renderApp = (state) => {
+    console.log('render app...');
+    renderTitle(state.title);
+    renderContent(state.content);
 }
 
-//render it first
-render();
+const renderTitle = (title) => {
+    console.log('render title...');
+    const titleDOM = document.getElementById('title');
+    titleDOM.innerHTML = title.text;
+    titleDOM.style.color = title.color;
+}
 
-//subscribe it
-store.subscribe(render);
+const renderContent = (content) => {
+    console.log('render content...');
+    const contentDOM = document.getElementById('content');
+    contentDOM.innerHTML = content.text;
+    contentDOM.style.color = content.color;
+}
 
-// Listener
-document.getElementById('itemadd') .addEventListener('click', () => {
-    const itemText = document.getElementById('itemtext');
-    store.dispatch({ type: 'ADD_ITEM', text: itemText.value }) ;
-    itemText.value = ''
-});
-
+renderApp(appState);
