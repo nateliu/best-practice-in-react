@@ -9,6 +9,19 @@ const appState = {
     }
 }
 
+const stateChanger = (state, action) => {
+    switch (action.type) {
+        case 'UPDATE_TITLE_TEXT':
+            state.title.text = action.text;
+            break;
+        case 'UPDATE_TITLE_COLOR':
+            state.title.color = action.color;
+            break;
+        default:
+            break;
+    }
+}
+
 const renderApp = (state) => {
     console.log('render app...');
     renderTitle(state.title);
@@ -29,4 +42,7 @@ const renderContent = (content) => {
     contentDOM.style.color = content.color;
 }
 
+renderApp(appState);
+stateChanger(appState, { type: 'UPDATE_TITLE_TEXT', text: 'Here is the updated title' })
+stateChanger(appState, { type: 'UPDATE_TITLE_COLOR', color: 'green' });
 renderApp(appState);
