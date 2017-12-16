@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { PropTypes } from 'prop-types';
 import { connect } from 'react-redux';
-import { fetchUserInfo, getInfo } from '../../reducers/github/profileFinder';
+import { fetchUserInfo } from '../../reducers/github/profileFinder';
 import ProfileFinder from '../../components/github/ProfileFinder';
 
 function mapStateToProps(state) {

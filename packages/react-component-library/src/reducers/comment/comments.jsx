@@ -1,7 +1,4 @@
-// action types
-const INIT_COMMNETS = 'INIT_COMMNETS'
-const ADD_COMMENT = 'ADD_COMMENT'
-const DELETE_COMMENT = 'DELETE_COMMENT'
+import { INIT_COMMNETS, ADD_COMMENT, DELETE_COMMENT } from '../../constants/comment/actionTypes';
 
 // reducer
 export default function commentsReducer(state, action) {
@@ -25,17 +22,4 @@ export default function commentsReducer(state, action) {
         default:
             return state
     }
-}
-
-// action creators
-export const initComments = (comments) => {
-    return { type: INIT_COMMNETS, comments }
-}
-
-export const addComment = (comment) => {
-    return { type: ADD_COMMENT, comment }
-}
-
-export const deleteComment = (commentIndex) => {
-    return { type: DELETE_COMMENT, commentIndex }
 }

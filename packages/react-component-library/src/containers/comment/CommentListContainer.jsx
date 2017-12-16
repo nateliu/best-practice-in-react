@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { PropTypes } from 'prop-types';
 import { connect } from 'react-redux';
 import CommentList from '../../components/comment/CommentList';
-import { initComments, deleteComment } from '../../reducers/comment/comments';
+import { initComments, deleteComment } from '../../actions/comment/actionCreators';
 
 class CommentListContainer extends Component {
     componentWillMount() {

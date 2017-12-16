@@ -1,0 +1,3 @@
+export const GET_INFO = 'GET_INFO';
+export const FETCHING_DATA = 'FETCHING_DATA';
+export const RECEIVE_USER_DATA = 'RECEIVE_USER_DATA';

@@ -10,7 +10,9 @@ export default class ProfileFinder extends Component {
         return (
             <div className='container'>
                 <Search fetchUserInfo={fetchUserInfo} isFetchingData={isFetchingData} />
-                {'name' in profile ? <Profile profile={profile} isFetchingData={isFetchingData} /> : ''}
+                {'name' in profile ? 
+                <Profile profile={profile} isFetchingData={isFetchingData} /> : 
+                ''}
             </div>
         );
     }

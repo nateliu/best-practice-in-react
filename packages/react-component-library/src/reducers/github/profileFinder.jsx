@@ -1,29 +1,5 @@
-//action types
-export const GET_INFO = 'GET_INFO';
-export const FETCHING_DATA = 'FETCHING_DATA';
-export const RECEIVE_USER_DATA = 'RECEIVE_USER_DATA';
-
-// action creators
-export function getInfo(username) {
-    return {
-        type: GET_INFO,
-        username,
-    };
-}
-
-export function fetchingData(fetching) {
-    return {
-        type: FETCHING_DATA,
-        fetching,
-    };
-}
-
-export function receiveUserData(profile) {
-    return {
-        type: RECEIVE_USER_DATA,
-        profile,
-    };
-}
+import { GET_INFO, FETCHING_DATA, RECEIVE_USER_DATA } from '../../constants/github/actionTypes';
+import { fetchingData, receiveUserData } from '../../actions/github/actionCreators';
 
 export function fetchUserInfo(username) {
     return function (dispatch) {

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { PropTypes } from 'prop-types';
 import { connect } from 'react-redux';
 import CommentInput from '../../components/comment/CommentInput';
-import { addComment } from '../../reducers/comment/comments';
+import { addComment } from '../../actions/comment/actionCreators';
 
 class CommentInputContainer extends Component {
     constructor() {
