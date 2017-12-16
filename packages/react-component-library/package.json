@@ -2,7 +2,7 @@
   "name": "react-component-library",
   "version": "1.0.0",
   "description": "react component collection",
-  "main": "/src/index.js",
+  "main": "/src/index.jsx",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --watch",
@@ -19,13 +19,11 @@
   },
   "homepage": "https://github.com/nateliu/react-component-library#readme",
   "dependencies": {
-    "css-loader": "^0.28.7",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.6",
-    "redux": "^3.7.2",
-    "style-loader": "^0.19.0"
+    "redux": "^3.7.2"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -37,8 +35,12 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "babel-runtime": "^6.26.0",
+    "css-loader": "^0.28.7",
     "html-webpack-plugin": "^2.30.1",
+    "less": "^2.7.3",
+    "less-loader": "^4.0.5",
     "react-transform-hmr": "^1.0.4",
+    "style-loader": "^0.19.0",
     "webpack": "^3.9.1",
     "webpack-dev-server": "^2.9.5"
   }

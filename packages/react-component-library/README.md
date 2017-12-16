@@ -8,6 +8,8 @@ npm init
 npm install --save react react-dom prop-types
 npm install --save-dev webpack webpack-dev-server babel-core babel-polyfill babel-loader babel-runtime babel-plugin-transform-runtime babel-preset-es2015 babel-preset-react babel-preset-stage-2 babel-plugin-react-transform html-webpack-plugin react-transform-hmr style-loader css-loader
 npm install --save redux react-redux
+npm install --save redux-logger redux-thunk
+npm install --save-dev less less-loader
 ```
 
 ## 2. Create the componet 

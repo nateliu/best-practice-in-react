@@ -26,8 +26,8 @@ module.exports = {
                 loader: 'babel-loader'
             }
         }, {
-            test: /\.css$/,
-            loader: 'style-loader!css-loader'
+            test: /\.css|\.less$/,
+            loader: 'style-loader!css-loader!less-loader'
         }]
     },
     plugins:[

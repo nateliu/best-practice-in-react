@@ -45,7 +45,9 @@ CommentListContainer.propTypes = {
 
 const mapStateToProps = (state) => {
     return {
-        comments: state.comments
+        comments: 
+                state.comments ||
+                state.commentsReducer.comments
     }
 }
 
