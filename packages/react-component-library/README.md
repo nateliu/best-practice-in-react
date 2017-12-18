@@ -10,6 +10,7 @@ npm install --save-dev webpack webpack-dev-server babel-core babel-polyfill babe
 npm install --save redux react-redux
 npm install --save redux-logger redux-thunk
 npm install --save-dev less less-loader
+npm install --save-dev jest babel-jest enzyme
 ```
 
 ## 2. Create the componet 
@@ -25,7 +26,9 @@ touch Comment.css
 ```
 "scripts": {
  "start": "webpack-dev-server --watch",
- "build": "webpack --progress --colors"
+ "build": "webpack --progress --colors",
+ "test": "jest",
+  "test:watch": "npm test -- --watch"
 }
 ```
 ## 4. modify the webpack.config.js file. add some usefull and I think it is important section:
@@ -57,3 +60,23 @@ plugins:[
     },
 ```  
 ## 6. npm start
+
+## 7. Debug jest in VS Code
+Add following into launch.json, section of "configurations": []
+```
+    {
+        "type": "node",
+        "request": "launch",
+        "protocol": "inspector",
+        "name": "Jest Debug",
+        "program": "${workspaceRoot}/node_modules/jest/bin/jest",
+        "stopOnEntry": false,
+        "args": ["--runInBand", "--env=jsdom", "${fileBasename}"],
+        "runtimeArgs": [
+            "--inspect-brk"
+            ],
+            "cwd": "${workspaceRoot}",
+            "sourceMaps": true,
+            "console": "integratedTerminal"
+    }
+```

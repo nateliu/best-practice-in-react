@@ -2,6 +2,7 @@
 node_modules
 no_use
 .vscode
+coverage
 
 # Built by webpack
 bundle.js
