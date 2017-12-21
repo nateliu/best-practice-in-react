@@ -5,7 +5,7 @@ import Comment from '../../../src/components/comment/Comment';
 function setup() {
     const props = {
         onDeleteComment: jest.fn(),
-        comment: { "userName": "fakeName", "comment": "comment in testing." },
+        comment: { "userName": "fakeName", "content": "comment in testing." },
         index: 1
     }
 
