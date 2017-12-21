@@ -1,12 +1,11 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount, render } from 'enzyme';
 import Comment from '../../../src/components/comment/Comment';
-import  idObj from 'identity-obj-proxy';
 
 function setup() {
     const props = {
         onDeleteComment: jest.fn(),
-        comment: "comment",
+        comment: { "userName": "fakeName", "comment": "comment in testing." },
         index: 1
     }
 
@@ -22,5 +21,5 @@ function setup() {
 it('should render self and subcomponents', () => {
     const { enzymeWrapper } = setup()
 
-    expect(enzymeWrapper.find('div').hasClass('comment')).toBe(true)
+    expect(enzymeWrapper.find('div').get(0).props.className).toEqual('comment')
 })
