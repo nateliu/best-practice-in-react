@@ -12,6 +12,7 @@ npm install --save redux-logger redux-thunk
 npm install --save-dev less less-loader
 npm install --save-dev jest babel-jest enzyme enzyme-adapter-react-16
 npm install --save-dev identity-obj-proxy
+npm install --save-dev request
 ```
 
 ## 2. Create the componet 
