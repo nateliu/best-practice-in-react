@@ -4,6 +4,21 @@ module.exports = {
     "moduleNameMapper": {
         "\\.(css|less)$": "identity-obj-proxy"
     },
+    "moduleFileExtensions": [
+        "js",
+        "jsx"
+    ],
+    "collectCoverageFrom": [
+        "src/**"
+    ],
+    "coverageThreshold": {
+        "global": {
+            "branches": 0,
+            "functions": 0,
+            "lines": 0,
+            "statements": 0
+        }
+    },
     "testPathIgnorePatterns": [
         "/node_modules/"
     ],
