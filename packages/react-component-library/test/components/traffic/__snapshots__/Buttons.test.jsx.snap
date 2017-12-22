@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`comment component should render correctly with default props 1`] = `
+exports[`traffic/Buttons renders correctly with GO Status 1`] = `
 <div
   style={
     Object {
@@ -31,3 +31,5 @@ exports[`comment component should render correctly with default props 1`] = `
   </button>
 </div>
 `;
+
+exports[`traffic/Buttons renders correctly with default props 1`] = `null`;

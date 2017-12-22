@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`comment/Comment renders correctly with props 1`] = `
+<div
+  className="comment"
+>
+  <div
+    className="comment-user"
+  >
+    <span>
+      fakeName
+       : 
+    </span>
+  </div>
+  <p
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "comment in testing.",
+      }
+    }
+  />
+  <span
+    className="comment-createdtime"
+  >
+    NaN Sec ago
+  </span>
+  <span
+    className="comment-delete"
+    onClick={[Function]}
+  >
+    Delete
+  </span>
+</div>
+`;

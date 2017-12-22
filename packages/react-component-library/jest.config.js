@@ -8,9 +8,9 @@ module.exports = {
         "js",
         "jsx"
     ],
-    "collectCoverageFrom": [
+    /*"collectCoverageFrom": [
         "src/**"
-    ],
+    ],*/
     "coverageThreshold": {
         "global": {
             "branches": 0,
@@ -26,6 +26,6 @@ module.exports = {
         "^.+\\.jsx?$": "babel-jest"
       },
       "setupFiles": [
-        "./tests/setup.jsx"
+        "./test/setup.jsx"
       ]
 };

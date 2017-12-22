@@ -1,5 +1,6 @@
 import React from 'react';
 import { shallow, mount, render } from 'enzyme';
+import { shallowToJson } from 'enzyme-to-json';
 import Comment from '../../../src/components/comment/Comment';
 
 function setup() {
@@ -17,9 +18,9 @@ function setup() {
     }
 }
 
-
-it('should render self and subcomponents', () => {
-    const { enzymeWrapper } = setup()
-
-    expect(enzymeWrapper.find('div').get(0).props.className).toEqual('comment')
+describe('comment/Comment', () => {
+    it('renders correctly with props', () => {
+        const { enzymeWrapper } = setup();
+        expect(shallowToJson(enzymeWrapper)).toMatchSnapshot();
+    })
 })

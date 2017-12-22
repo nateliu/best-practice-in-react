@@ -19,10 +19,15 @@ function setup() {
     }
 }
 
-describe('comment component', () => {
-    it('should render correctly with default props', () => {
-        const { enzymeWrapper } = setup()
+describe('traffic/Buttons', () => {
+    it('renders correctly with default props', () => {
+        const { enzymeWrapper } = shallow(<Buttons />)
+        expect(shallowToJson(enzymeWrapper)).toMatchSnapshot();
+    });
 
+    it('renders correctly with GO Status', () => {
+        const { enzymeWrapper } = setup()
+        expect(enzymeWrapper.find('.trafficButton').length).toEqual(3);
         expect(shallowToJson(enzymeWrapper)).toMatchSnapshot();
     })
 })
