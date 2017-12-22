@@ -1,5 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import { shallowToJson } from 'enzyme-to-json';
 import Buttons from '../../../src/components/traffic/Buttons';
 
 function setup() {
@@ -19,9 +20,9 @@ function setup() {
 }
 
 describe('comment component', () => {
-    it('should render correctly with default state', () => {
+    it('should render correctly with default props', () => {
         const { enzymeWrapper } = setup()
 
-        expect(enzymeWrapper).toMatchSnapshot();
+        expect(shallowToJson(enzymeWrapper)).toMatchSnapshot();
     })
 })

@@ -1,188 +1,33 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`comment component should render correctly with default state 1`] = `
-ShallowWrapper {
-  "length": 1,
-  Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Buttons
-    caution={[MockFunction]}
-    go={[MockFunction]}
-    lightStatus="GO"
-    stop={[MockFunction]}
-  />,
-  Symbol(enzyme.__renderer__): Object {
-    "batchedUpdates": [Function],
-    "getNode": [Function],
-    "render": [Function],
-    "simulateEvent": [Function],
-    "unmount": [Function],
-  },
-  Symbol(enzyme.__node__): Object {
-    "instance": null,
-    "key": undefined,
-    "nodeType": "host",
-    "props": Object {
-      "children": Array [
-        <button
-          className="trafficButton"
-          disabled={true}
-          onClick={[MockFunction]}
-        >
-          Go
-        </button>,
-        <button
-          className="trafficButton"
-          disabled={false}
-          onClick={[MockFunction]}
-        >
-          Caution
-        </button>,
-        <button
-          className="trafficButton"
-          disabled={true}
-          onClick={[MockFunction]}
-        >
-          Stop
-        </button>,
-      ],
-      "style": Object {
-        "textAlign": "center",
-      },
-    },
-    "ref": null,
-    "rendered": Array [
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "children": "Go",
-          "className": "trafficButton",
-          "disabled": true,
-          "onClick": [MockFunction],
-        },
-        "ref": null,
-        "rendered": "Go",
-        "type": "button",
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "children": "Caution",
-          "className": "trafficButton",
-          "disabled": false,
-          "onClick": [MockFunction],
-        },
-        "ref": null,
-        "rendered": "Caution",
-        "type": "button",
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "children": "Stop",
-          "className": "trafficButton",
-          "disabled": true,
-          "onClick": [MockFunction],
-        },
-        "ref": null,
-        "rendered": "Stop",
-        "type": "button",
-      },
-    ],
-    "type": "div",
-  },
-  Symbol(enzyme.__nodes__): Array [
+exports[`comment component should render correctly with default props 1`] = `
+<div
+  style={
     Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "host",
-      "props": Object {
-        "children": Array [
-          <button
-            className="trafficButton"
-            disabled={true}
-            onClick={[MockFunction]}
-          >
-            Go
-          </button>,
-          <button
-            className="trafficButton"
-            disabled={false}
-            onClick={[MockFunction]}
-          >
-            Caution
-          </button>,
-          <button
-            className="trafficButton"
-            disabled={true}
-            onClick={[MockFunction]}
-          >
-            Stop
-          </button>,
-        ],
-        "style": Object {
-          "textAlign": "center",
-        },
-      },
-      "ref": null,
-      "rendered": Array [
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": "Go",
-            "className": "trafficButton",
-            "disabled": true,
-            "onClick": [MockFunction],
-          },
-          "ref": null,
-          "rendered": "Go",
-          "type": "button",
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": "Caution",
-            "className": "trafficButton",
-            "disabled": false,
-            "onClick": [MockFunction],
-          },
-          "ref": null,
-          "rendered": "Caution",
-          "type": "button",
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": "Stop",
-            "className": "trafficButton",
-            "disabled": true,
-            "onClick": [MockFunction],
-          },
-          "ref": null,
-          "rendered": "Stop",
-          "type": "button",
-        },
-      ],
-      "type": "div",
-    },
-  ],
-  Symbol(enzyme.__options__): Object {
-    "adapter": ReactSixteenAdapter {
-      "options": Object {
-        "enableComponentDidUpdateOnSetState": true,
-      },
-    },
-  },
-}
+      "textAlign": "center",
+    }
+  }
+>
+  <button
+    className="trafficButton"
+    disabled={true}
+    onClick={[MockFunction]}
+  >
+    Go
+  </button>
+  <button
+    className="trafficButton"
+    disabled={false}
+    onClick={[MockFunction]}
+  >
+    Caution
+  </button>
+  <button
+    className="trafficButton"
+    disabled={true}
+    onClick={[MockFunction]}
+  >
+    Stop
+  </button>
+</div>
 `;
