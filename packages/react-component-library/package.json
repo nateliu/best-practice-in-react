@@ -21,9 +21,11 @@
   },
   "homepage": "https://github.com/nateliu/react-component-library#readme",
   "dependencies": {
+    "intl": "^1.2.5",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-intl": "^2.4.0",
     "react-redux": "^5.0.6",
     "redux": "^3.7.2",
     "redux-logger": "^3.0.6",
