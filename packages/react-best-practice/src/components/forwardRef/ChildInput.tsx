@@ -1,13 +1,12 @@
 import React, { forwardRef, ReactElement, useState, useRef, useImperativeHandle } from "react";
-import { IChildInputProps, IInputWithLabelProps } from "./types"
+import { IChildInputProps } from "./types"
 
-
-const InputWithLabel = ({ label, myRef }: IInputWithLabelProps): ReactElement => {
+const ChildInput = ({ label }: IChildInputProps, ref: any): ReactElement => {
     const [value, setValue] = useState("");
 
     const innerRef = useRef<HTMLInputElement>(null);
-    
-    useImperativeHandle(myRef, () => ({
+
+    useImperativeHandle(ref, () => ({
         getValue,
         focus() {
             const node = innerRef.current;
@@ -34,8 +33,4 @@ const InputWithLabel = ({ label, myRef }: IInputWithLabelProps): ReactElement =>
     );
 }
 
-const ChildInput = forwardRef(({ label }: IChildInputProps, ref: any) => (
-    <InputWithLabel label={label} myRef={ref} />
-));
-
-export default ChildInput;
+export default forwardRef(ChildInput);
