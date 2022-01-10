@@ -2,7 +2,7 @@ import React, { FC, ReactElement } from 'react'
 
 const ClickButton: FC = (): ReactElement => {
 
-    const handleClick = (e: any) => {
+    const handleClick = (e) => {
         console.log(`this is passed any parameter:${e}`);
         console.log(`this is from e.id:${e.target.id}`);
         console.log(`this is e.data:${e.currentTarget.getAttribute('data-xxx')}`);
