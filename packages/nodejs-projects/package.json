@@ -1,8 +1,0 @@
-{
-  "name": "nodejs-projects",
-  "version": "0.1.0",
-  "main": "index.js",
-  "repository": "https://github.com/nateliu/nodejsProjects.git",
-  "author": "Nate Liu <jinlliu@expediagroup.com>",
-  "license": "MIT"
-}
