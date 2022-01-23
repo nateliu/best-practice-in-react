@@ -1,0 +1,22 @@
+0 silly argv {
+0 silly argv   _: [ 'import' ],
+0 silly argv   lernaVersion: '4.0.0',
+0 silly argv   '$0': '/usr/local/bin/lerna',
+0 silly argv   dir: '../nodejsProjects'
+0 silly argv }
+1 notice cli v4.0.0
+2 verbose rootPath /Users/jinlliu/github/best-practice-in-react
+3 info versioning independent
+4 error Error: Cannot find module '/Users/jinlliu/github/nodejsProjects/package.json'
+4 error Require stack:
+4 error - /Users/jinlliu/github/best-practice-in-react/node_modules/@lerna/import/index.js
+4 error - /Users/jinlliu/github/best-practice-in-react/node_modules/@lerna/import/command.js
+4 error - /Users/jinlliu/github/best-practice-in-react/node_modules/lerna/index.js
+4 error - /Users/jinlliu/github/best-practice-in-react/node_modules/lerna/cli.js
+4 error - /Users/jinlliu/.config/yarn/global/node_modules/import-local/index.js
+4 error - /Users/jinlliu/.config/yarn/global/node_modules/lerna/cli.js
+4 error     at Function.Module._resolveFilename (node:internal/modules/cjs/loader:933:15)
+4 error     at Function.Module._load (node:internal/modules/cjs/loader:778:27)
+4 error     at Module.require (node:internal/modules/cjs/loader:1005:19)
+4 error     at require (node:internal/modules/cjs/helpers:102:18)
+4 error     at ImportCommand.initialize (/Users/jinlliu/github/best-practice-in-react/node_modules/@lerna/import/index.js:57:25)
