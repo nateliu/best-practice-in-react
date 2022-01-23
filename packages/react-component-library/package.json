@@ -1,5 +1,5 @@
 {
-  "name": "react-component-library",
+  "name": "@best-practice-in-react/react-component-library",
   "version": "1.0.0",
   "description": "react component collection",
   "main": "/src/index.jsx",

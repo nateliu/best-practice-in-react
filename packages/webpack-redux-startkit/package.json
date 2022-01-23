@@ -1,5 +1,5 @@
 {
-  "name": "webpack-redux-startkit",
+  "name": "@best-practice-in-react/webpack-redux-startkit",
   "version": "1.0.0",
   "description": "This is a redux startkit",
   "main": "./src/index.js",

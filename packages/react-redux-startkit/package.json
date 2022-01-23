@@ -1,5 +1,5 @@
 {
-  "name": "react-in-action",
+  "name": "@best-practice-in-react/react-in-action",
   "version": "1.0.0",
   "description": "react in action",
   "main": "./src/index.js",

@@ -11,7 +11,11 @@
     "start:todo-app-js": "lerna run start --scope @best-practice-in-react/todo-app-js",
     "start:todo-app-ts": "lerna run start --scope @best-practice-in-react/todo-app-ts",
     "start:todo-app-self": "lerna run start --scope @best-practice-in-react/todo-app-self",
-    "start:react-best-practice": "lerna run start --scope @best-practice-in-react/react-best-practice"
+    "start:react-best-practice": "lerna run start --scope @best-practice-in-react/react-best-practice",
+    "start:react-component-library": "lerna run start --scope @best-practice-in-react/react-component-library",
+    "start:react-redux-startkit": "lerna run start --scope @best-practice-in-react/react-redux-startkit",
+    "start:webpack-react-startkit": "lerna run start --scope @best-practice-in-react/webpack-react-startkit",
+    "start:webpack-redux-startkit": "lerna run start --scope @best-practice-in-react/webpack-redux-startkit"
   },
   "config": {
     "commitizen": {

@@ -1,5 +1,5 @@
 {
-  "name": "webpack-react-startkit",
+  "name": "@best-practice-in-react/webpack-react-startkit",
   "version": "1.0.0",
   "description": "This is a react startkit",
   "main": "./src/index.js",
