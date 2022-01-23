@@ -10,7 +10,8 @@
     "bootstrap": "lerna bootstrap",
     "start:todo-app-js": "lerna run start --scope @best-practice-in-react/todo-app-js",
     "start:todo-app-ts": "lerna run start --scope @best-practice-in-react/todo-app-ts",
-    "start:todo-app-self": "lerna run start --scope @best-practice-in-react/todo-app-self"
+    "start:todo-app-self": "lerna run start --scope @best-practice-in-react/todo-app-self",
+    "start:react-best-practice": "lerna run start --scope @best-practice-in-react/react-best-practice"
   },
   "config": {
     "commitizen": {
