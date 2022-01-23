@@ -1,0 +1,42 @@
+{
+  "name": "best-practice-in-react",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "clean": "lerna clean",
+    "commit": "git-cz",
+    "bootstrap": "lerna bootstrap",
+    "start:todo-app-js": "lerna run start --scope @best-practice-in-react/todo-app-js",
+    "start:todo-app-ts": "lerna run start --scope @best-practice-in-react/todo-app-ts",
+    "start:todo-app-self": "lerna run start --scope @best-practice-in-react/todo-app-self"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-lerna-changelog"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "standard --fix",
+      "git add"
+    ]
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^16.1.0",
+    "@commitlint/config-conventional": "^16.0.0",
+    "commitizen": "^4.2.4",
+    "cz-lerna-changelog": "^2.0.3",
+    "husky": "^7.0.4",
+    "lerna": "^4.0.0",
+    "lint-staged": "^12.2.2",
+    "standard": "^16.0.4"
+  }
+}
